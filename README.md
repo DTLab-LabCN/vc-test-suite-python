@@ -28,6 +28,15 @@ Output:
  {'conformant': False, 'required_score': '6/9', 'optional_score': '1/2', 'verifications': {'@context': [{'statement': 'Verifiable credentials MUST include a @context property.', 'required': True, 'pass': True}, {'statement': 'The value of the @context property MUST be an ordered set.', 'required': True, 'pass': True}, {'statement': 'The first item MUST be a URI with the value https://www.w3.org/2018/credentials/v1', 'required': True, 'pass': False}, {'statement': 'Subsequent items MUST be composed of URLs and/or objects each processable as a JSON-LD Context.', 'required': True, 'pass': True}], 'type': [{'statement': 'Verifiable credentials MUST have a type property.', 'required': True, 'pass': True}, {'statement': 'MUST have VerifiableCredential', 'required': True, 'pass': True}, {'statement': 'MAY have a more specific verifiable credential type.', 'required': False, 'pass': True}], 'issuer': [{'statement': 'A verifiable credential MUST have an issuer property.', 'required': True, 'pass': False}], 'issuanceDate': [{'statement': 'A credential MUST have an issuanceDate property.', 'required': True, 'pass': False}], 'credentialSubject': [{'statement': 'A verifiable credential MUST have a credentialSubject property.', 'required': True, 'pass': True}, {'statement': 'Each object MAY contain an id.', 'required': False, 'pass': False}]}}
 
 
+Example2:
+Input:
+python3 main.py '{"someExample":"2"}'
+
+Output:
+None
+
+ {'conformant': False, 'required_score': '0/5', 'optional_score': '0/0', 'verifications': {'@context': [{'statement': 'Verifiable credentials MUST include a @context property.', 'required': True, 'pass': False}], 'type': [{'statement': 'Verifiable credentials MUST have a type property.', 'required': True, 'pass': False}], 'issuer': [{'statement': 'A verifiable credential MUST have an issuer property.', 'required': True, 'pass': False}], 'issuanceDate': [{'statement': 'A credential MUST have an issuanceDate property.', 'required': True, 'pass': False}], 'credentialSubject': [{'statement': 'A verifiable credential MUST have a credentialSubject property.', 'required': True, 'pass': False}]}}
+
 
 
 
