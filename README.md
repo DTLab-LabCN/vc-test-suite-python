@@ -5,7 +5,7 @@ This repository contains scripts for testing an input against the W3C Verifiable
 ## Getting started
 
 Setup a virtual environment and install the project:
-```
+```bash
 python3 -m venv venv
 . venv/bin/activate
 ./install.sh
@@ -13,13 +13,13 @@ python3 -m venv venv
 ```
 
 Run your first test
-```
+```bash
 vc_test_suite '{"@context": ["https://www.w3.org/2018/credentials/v1"]}'
 
 ```
 
 Example results
-```
+```bash
 {
   "conformant": false,
   "required_score": "4/8",
