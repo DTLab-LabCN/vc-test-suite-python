@@ -1,50 +1,15 @@
-import sys #Added
-sys.path.append('../') #Added
 from pyld import jsonld
-from pprint import pprint
 import re
 import json
-import requests
 import validators
 import uritools
-#from config import settings
-import messaging #from .. import messaging
-#from app.controllers.uniresolver import UniresolverController
-#from app.controllers.agent import AgentController
+from vc_test_suite import messaging
 from rfc3986 import is_valid_uri
 
 def valid_xml_timestamp(timestamp):
     iso8601_regex = r"^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
     match_iso8601 = re.compile(iso8601_regex).match
     return False if match_iso8601(timestamp) is None else True
-
-
-def compact(vc):
-    try:
-        vc['@context'].append({'@vocab': 'https://www.w3.org/ns/credentials/issuer-dependent#'})
-        return jsonld.compact(vc, {})
-    except:
-        return None
-
-
-def get_version(vc):
-    try:
-        return (
-            vc["@context"][0].split("/")[1]
-            if vc["@context"][0]
-            in [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://www.w3.org/ns/credentials/v2",
-            ]
-            else None
-        )
-    except:
-        return None
-
-
-def test_data_model(vc):
-    return test_data_model_v1(vc) if get_version(vc) == "v1" else test_data_model_v2(vc)
-
 
 def test_data_model_v1(vc):
     verifications = {}
@@ -605,39 +570,3 @@ def test_data_model_v1(vc):
     }
 
     return results
-
-
-def test_data_model_v2(vc):
-    pass
-
-
-def test_verification(vc):
-    body = {"verifiableCredential": vc, "options": {}}
-    verifications = []
-    for verifier in settings.VC_API_VERIFIERS:
-        r = requests.post(verifier["endpoint"], json=body)
-        verification = {
-            "verifier": verifier["name"],
-            'response_code': r.status_code
-            }
-
-
-        try:
-            verification["content"] = r.json()
-        except:
-            verification["content"] = r.text
-
-        verifications.append(verification)
-    return verifications
-
-
-def resolve_dids(vc):
-    did_documents = {}
-
-    issuer_did = vc["issuer"] if isinstance(vc["issuer"], str) else vc["issuer"]["id"]
-    did_documents["issuer"] = AgentController(issuer_did).resolve_did()
-
-    if "id" in vc["credentialSubject"]:
-        did_documents["subject"] = AgentController(vc["credentialSubject"]["id"]).resolve_did()
-
-    return did_documents

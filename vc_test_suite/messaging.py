@@ -72,15 +72,3 @@ VCDM_V1_STATEMENTS = {
         "The specific method used for an embedded proof MUST be included using the type property.",
     ],
 }
-
-MDOC_STATEMENTS = {
-    "docType": [],
-    "issuerSigned": [],
-    "issuerAuth": [],
-    "issuerSignatures": [],
-    "issuerNamespaces": [],
-    "deviceSigned": [],
-    "deviceAuth": [],
-    "deviceSignatures": [],
-    "deviceNamespaces": [],
-}
