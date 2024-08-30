@@ -2,10 +2,6 @@
 
 This repository contains a script(valid_vc_generator.py) for generating Verifiable credentials that abide by normative statements provided by the W3c data model 1.1 & 2.0 specification.This ensures that all the required attributes with a chosen set of arbitrary one are combined.It also contains a validator script(maximus_validator.py) that takes .json files in a seperate directory for checking whether a credential abides by the normative statements provided by the W3C Verifiable credential data model 1.1 & 2.0 specification. Their is also a report pdf(Report_DTLab.pdf) providing further clarification on the functionality of the two scripts along with a greater context of the purposes of these scripts. Their are also existing test suites that are used within this repository. The validator utilizes the test suites that either abide or violate the normative statements for w3c data model 1.1 which can be found in dtt-test-api/tests_scripts/input. Their are test suites within the repository that abide or violate the normative statements for w3c data model 2.0 which can be found in tests/input.
 
-## Regarding the options for the Validator script
-Their are three options for the Validator option A is 
-
-
 ## Getting started
 
 For generating verifiable credentials:
@@ -74,7 +70,7 @@ Outputted prompt:
 Enter a)V2.0 or b)V1.1: c)For generated VC's
 ```
 
-# If selecting Option A
+## If selecting Option A
 The validator will validate the test suites regarding the w3c data model V2.0 specification.
 
 Example output:
@@ -105,7 +101,7 @@ INFO:root:validating value of {'id': 'did:example:subject'} for @id
 True
 -------------------------------------------
 ```
-# If selecting Option B
+## If selecting Option B
 The validator will validate the test suites regarding the w3c data model V1.1 specification.
 Example output:
 ```bash
@@ -119,7 +115,7 @@ ERROR:root:Invalid URI: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImRpZDpleGFt
 ERROR:root:eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImRpZDpleGFtcGxlOmFiZmUxM2Y3MTIxMjA0MzFjMjc2ZTEyZWNhYiNrZXlzLTEifQ.eyJzdWIiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEiLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsImlzcyI6Imh0dHBzOi8vZXhhbXBsZS5jb20va2V5cy9mb28uandrIiwibmJmIjoxNTQxNDkzNzI0LCJpYXQiOjE1NDE0OTM3MjQsImV4cCI6MTU3MzAyOTcyMywibm9uY2UiOiI2NjAhNjM0NUZTZXIiLCJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vd3d3LnczLm9yZy8yMDE4L2NyZWRlbnRpYWxzL2V4YW1wbGVzL3YxIl0sInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJVbml2ZXJzaXR5RGVncmVlQ3JlZGVudGlhbCJdLCJjcmVkZW50aWFsU3ViamVjdCI6eyJkZWdyZWUiOnsidHlwZSI6IkJhY2hlbG9yRGVncmVlIiwibmFtZSI6IjxzcGFuIGxhbmc9J2ZyLUNBJz5CYWNjYWxhdXLDqWF0IGVuIG11c2lxdWVzIG51bcOpcmlxdWVzPC9zcGFuPiJ9fX19.KLJo5GAyBND3LDTn9H7FQokEsUEi8jKwXhGvoN3JtRa51xrNDgXDb0cq1UTYB-rK4Ft9YVmR1NI_ZOF8oGc_7wAp8PHbF2HaWodQIoOBxxT-4WNqAxft7ET6lkH-4S6Ux3rSGAmczMohEEf8eCeN-jC8WekdPl6zKZQj0YPB1rx6X0-xlFBs7cl6Wt8rfBP_tZ9YgVWrQmUWypSioc0MUyiphmyEbLZagTyPlUyflGlEdqrZAv6eSe6RtxJy6M1-lD7a5HTzanYTWBPAUHDZGyGKXdJw-W_x0IWChBzI8t3kpG253fg6V3tPgHeKXE94fz_QpYfg--7kLsyBAfQGbg for verifiableCredential is invalid
 False
 ```
-# If selecting Option C
+## If selecting Option C
 The validator will validate the test suites regarding the generated test suites.
 Example output:
 ```bash
