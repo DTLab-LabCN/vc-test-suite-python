@@ -1,6 +1,6 @@
 cachetools==5.3.3
 frozendict==2.4.4
-lxml==5.2.2
+lxml==6.1.0
 PyLD==2.0.4
 rfc3986==2.0.0
 uritools==4.0.3
